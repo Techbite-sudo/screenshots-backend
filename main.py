@@ -12,7 +12,7 @@ app = FastAPI()
 # CORS setup: allow all origins for now (customize in production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to your frontend domain in production
+    allow_origins=["https://screenshots-frontend-two.vercel.app"],  # Change this to your frontend domain in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

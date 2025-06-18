@@ -25,6 +25,10 @@ os.makedirs(SCREENSHOTS_ROOT, exist_ok=True)
 # Mount the static files route
 app.mount("/screenshots", StaticFiles(directory=SCREENSHOTS_ROOT), name="screenshots")
 
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok", "message": "Backend is running"}
+
 @app.get("/screenshot")
 async def screenshot(url: str = Query(..., description="URL to screenshot")):
     # Generate a unique folder for this request
